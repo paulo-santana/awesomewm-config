@@ -5,6 +5,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 
 local menus = require('settings.menus') -- ./settings/menus.lua
 
+local client = client
+local awesome = awesome
+
 --local mymainmenu = menus.generate_main_menu(beautiful)
 
 local M = {}
@@ -114,9 +117,15 @@ M.globalkeys = gears.table.join(
     awful.key({ modkey }, "p",
 			  function()
 				  --awful.spawn("rofi -matching fuzzy -show run")
-				  awful.spawn("dmenu_run")
+				  awful.spawn.easy_async("dmenu_run", nil)
 			  end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+	awful.key({ modkey, "Control" }, "p",
+			  function ()
+				  awful.spawn.easy_async("passmenu", nil)
+			  end
+	)
 )
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
