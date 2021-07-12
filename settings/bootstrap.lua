@@ -1,5 +1,7 @@
 -- startup setup
 
+local awesome = awesome
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
