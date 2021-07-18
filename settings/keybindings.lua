@@ -116,8 +116,8 @@ M.globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "p",
 			  function()
-				  --awful.spawn("rofi -matching fuzzy -show run")
-				  awful.spawn.easy_async("dmenu_run", nil)
+				  awful.spawn("rofi -matching fuzzy -show run")
+				  --awful.spawn.easy_async("dmenu_run", nil)
 			  end,
               {description = "show the menubar", group = "launcher"}),
 
